@@ -1,0 +1,6 @@
+name: Otogi
+version: '${version}'
+
+main: uk.akkiserver.otogi.OtogiPlugin
+api-version: '26.2'
+load: STARTUP
