@@ -1,0 +1,11 @@
+{
+  "id": "shuten",
+  "name": "酒呑童子・鬼宴",
+  "description": ["4秒間、具の直接ダメージが1.3倍", "効果中は全被ダメージも1.25倍", "術・範囲具は強化されない / CT13秒"],
+  "kind": "skill",
+  "material": "HONEY_BOTTLE",
+  "cooldown": 260,
+  "backend": "java",
+  "handler": "oni_frenzy",
+  "parameters": {"durationTicks": 80, "toolMultiplier": 1.3, "incomingMultiplier": 1.25}
+}

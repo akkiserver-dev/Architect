@@ -1,0 +1,11 @@
+{
+  "id": "hasshaku",
+  "name": "八尺様・呼び声",
+  "description": ["右: 視線の先10mまでに、半径2.5mの予告領域を置く", "1.2秒後に4HP。命中した相手の術を1.5秒封じる", "照準は設置時に固定 / CT11秒"],
+  "kind": "skill",
+  "material": "SOUL_LANTERN",
+  "backend": "java",
+  "handler": "dread_sphere",
+  "cooldown": 220,
+  "parameters": {"range": 10, "radius": 2.5, "delayTicks": 24, "damage": 4, "silenceTicks": 30}
+}

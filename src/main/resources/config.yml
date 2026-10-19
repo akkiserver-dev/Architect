@@ -1,2 +1,73 @@
-enabled=true
-defaultNamespace=otogi
+enabled: true
+defaultNamespace: otogi
+
+# ビルドで選べるアーキテクトの数 (1-9)
+build:
+  size: 5
+
+# 秒 / キル数 / 復帰時の加護(tick)。攻撃すると加護は解除される。
+ffa:
+  match-seconds: 600
+  kill-limit: 10
+  spawn-protection-ticks: 60
+
+# 能力の時間は秒、距離はブロック。name / description で表示名・説明も変更可能。
+# 例: abilities.anchor.description: ['錨を投げる', '右クリックで発動']
+abilities:
+  warp:
+    cooldown: 15
+    range: 30
+  purge:
+    cooldown: 30
+  overclock:
+    cooldown: 22
+  anchor:
+    cooldown: 18
+    range: 16
+    damage: 4
+    duration: 1.5
+  hack:
+    cooldown: 20
+    radius: 10
+    duration: 5
+  mirror:
+    cooldown: 20
+    duration: 2
+  sever:
+    cooldown: 20
+    length: 6
+    damage: 5
+    duration: 3
+    silence: 1
+  tether:
+    cooldown: 18
+    range: 12
+    duration: 5
+  veil:
+    cooldown: 24
+    radius: 5
+    duration: 6
+  conduit:
+    duration: 5
+    bonus: 0.25
+  resonance:
+    interval: 8
+    reduction: 2
+  focus:
+    isolation-radius: 8
+    range-bonus: 0.1
+    damage-bonus: 0.1
+  counter:
+    cooldown: 10
+    duration: 2
+  curse:
+    cooldown: 40
+    duration: 10
+  echo:
+    cooldown: 6
+    ratio: 0.15
+  afterimage:
+    cooldown: 10
+    duration: 2
+  foresight:
+    cooldown: 12

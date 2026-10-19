@@ -1,0 +1,16 @@
+{
+  "id": "riposte",
+  "name": "八咫鏡・返照",
+  "description": [
+    "被弾後4秒以内の次の直接攻撃が1.25倍",
+    "攻撃時に構えを消費"
+  ],
+  "kind": "passive",
+  "material": "STRING",
+  "backend": "lua",
+  "script": "scripts/riposte.lua",
+  "parameters": {
+    "window": 80,
+    "multiplier": 1.25
+  }
+}

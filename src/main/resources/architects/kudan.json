@@ -1,0 +1,21 @@
+{
+  "id": "kudan",
+  "name": "件・凶兆",
+  "description": [
+    "体力30%以下で速度Iを3秒・耐性Iを1秒",
+    "1秒ごとに判定 / 内部CT15秒"
+  ],
+  "kind": "passive",
+  "material": "GOAT_HORN",
+  "tickInterval": 20,
+  "backend": "lua",
+  "script": "scripts/kudan.lua",
+  "parameters": {
+    "threshold": 0.3,
+    "speed_ticks": 60,
+    "resistance_ticks": 20,
+    "speed_amplifier": 0,
+    "resistance_amplifier": 0,
+    "interval": 300
+  }
+}

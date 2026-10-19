@@ -1,0 +1,63 @@
+# 距離はブロック、時間はtick（20tick = 1秒）。変更後は /otogi reload。
+feedback:
+  sound: true
+  particles: true
+  volume: 0.7
+  hit-marker: true
+tools:
+  chakram:
+    attack-interval: 10
+    damage: 5
+    return-rate: 0.6
+    range: 12
+    out-speed: 1.1
+    return-speed: 1.4
+    hit-radius: 0.9
+    max-return-ticks: 80
+    catch-cool-time: 8
+  halberd:
+    attack-interval: 16
+    damage: 6
+    range: 4
+    half-angle: 35
+    knockback: 0.35
+    thrust-length: 6
+    thrust-thickness: 0.25
+    thrust-cool-time: 80
+  katana:
+    attack-interval: 12
+    damage: 7
+    range: 3
+    half-angle: 55
+    arc-radius: 2.3
+  rapier:
+    attack-interval: 6
+    damage: 3
+    backstab-bonus: 2
+    backstab-half-angle: 45
+    length: 3.4
+    thickness: 0.3
+    combo-grace-ticks: 40
+    pierce-count: 3
+  tome:
+    max-circles: 3
+    attack-interval: 24
+    damage: 2
+    place-distance: 3.5
+    radius: 2
+    duration-ticks: 80
+    reapply-ticks: 40
+    slow-ticks: 30
+  lantern:
+    attack-interval: 16
+    damage: 3
+    reach: 2.6
+    reveal-range: 8
+    silence-range: 8
+    silence-ticks: 60
+    cooldown-ticks: 320
+  ward:
+    attack-interval: 16
+    damage: 3
+    reach: 2.6
+    regenerate-ticks: 360

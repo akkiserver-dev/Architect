@@ -1,0 +1,18 @@
+{
+  "id": "tamatebako",
+  "name": "浦島・玉手箱",
+  "description": [
+    "命中・被弾から6秒離れると自身を2HP回復",
+    "内部CT8秒 / 二次・環境ダメージは対象外"
+  ],
+  "kind": "passive",
+  "material": "HEART_OF_THE_SEA",
+  "tickInterval": 20,
+  "backend": "lua",
+  "script": "scripts/tamatebako.lua",
+  "parameters": {
+    "quiet_ticks": 120,
+    "heal": 2,
+    "interval": 160
+  }
+}

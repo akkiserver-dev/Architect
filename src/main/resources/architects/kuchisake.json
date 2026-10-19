@@ -1,0 +1,26 @@
+{
+  "id": "kuchisake",
+  "name": "口裂け・二口",
+  "description": [
+    "左: 3mの扇形に2.8HP。命中後2秒だけ追撃可能",
+    "右: 6mの細い直線の先頭に4.5HP、押し出し",
+    "攻撃間隔0.9秒 / 追撃CT6秒。右の空振りでも権利を消費"
+  ],
+  "kind": "tool",
+  "material": "SHEARS",
+  "backend": "lua",
+  "script": "scripts/kuchisake.lua",
+  "attackInterval": 18,
+  "cooldown": 120,
+  "parameters": {
+    "left_range": 3,
+    "left_half_angle": 35,
+    "left_damage": 2.8,
+    "left_knockback": 0,
+    "ready_ticks": 40,
+    "right_range": 6,
+    "right_width": 0.18,
+    "right_damage": 4.5,
+    "right_knockback": 0.2
+  }
+}

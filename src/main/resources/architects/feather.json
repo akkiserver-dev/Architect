@@ -1,0 +1,17 @@
+{
+  "id": "feather",
+  "name": "天女の羽衣",
+  "description": [
+    "移動速度+12%",
+    "受けるダメージ+10%"
+  ],
+  "kind": "park",
+  "material": "PHANTOM_MEMBRANE",
+  "backend": "lua",
+  "script": "scripts/feather.lua",
+  "parameters": {
+    "speed_bonus": 0.12,
+    "damage_taken": 1.1
+  },
+  "incompatible": []
+}

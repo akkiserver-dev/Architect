@@ -1,0 +1,17 @@
+{
+  "id": "gale",
+  "name": "天狗の羽団扇",
+  "description": [
+    "視線方向へ短くダッシュする",
+    "移動速度1.25 / CT5秒"
+  ],
+  "kind": "skill",
+  "material": "FEATHER",
+  "cooldown": 100,
+  "backend": "java",
+  "handler": "dash",
+  "parameters": {
+    "speed": 1.25,
+    "lift": 0.18
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "lastStand": {
+    "lives": 3,
+    "matchSeconds": 600
+  },
+  "kingOfHill": {
+    "targetPoints": 60,
+    "matchSeconds": 600
+  }
+}

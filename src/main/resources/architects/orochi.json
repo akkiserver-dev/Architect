@@ -1,0 +1,12 @@
+{
+  "id": "orochi",
+  "name": "八岐大蛇・蛇骨",
+  "description": ["左: 3.5mの突き、3HP。命中で牙を蓄える（最大3）", "右: 牙を全消費し、周囲3.5mへ1＋牙数×1.5HP", "攻撃間隔1秒 / 放出CT6秒。死亡で牙を失う"],
+  "kind": "tool",
+  "material": "BONE",
+  "backend": "lua",
+  "script": "scripts/orochi.lua",
+  "attackInterval": 20,
+  "cooldown": 120,
+  "parameters": {"range": 3.5, "width": 0.35, "damage": 3, "max_fangs": 3, "burst_radius": 3.5, "burst_base": 1, "burst_per_fang": 1.5, "knockback": 0.35}
+}

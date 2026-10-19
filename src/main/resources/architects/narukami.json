@@ -1,0 +1,11 @@
+{
+  "id": "narukami",
+  "name": "雷神・鳴神",
+  "description": ["照準を固定し1秒後に射程12の雷閃", "直線の幅0.45 / 7ダメージ・押し出し", "火花の射線から回避可能 / CT12秒"],
+  "kind": "skill",
+  "material": "LIGHTNING_ROD",
+  "cooldown": 240,
+  "backend": "java",
+  "handler": "thunder",
+  "parameters": {"range": 12, "width": 0.45, "delayTicks": 20, "damage": 7, "knockback": 0.35}
+}

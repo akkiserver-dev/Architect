@@ -1,0 +1,18 @@
+{
+  "id": "shura",
+  "name": "修羅・背水",
+  "description": [
+    "受けるダメージ+10%",
+    "体力40%以下で二次以外の与ダメージ+18%"
+  ],
+  "kind": "park",
+  "material": "NETHERITE_SWORD",
+  "backend": "lua",
+  "script": "scripts/shura.lua",
+  "parameters": {
+    "threshold": 0.4,
+    "damage_bonus": 1.18,
+    "damage_taken": 1.1
+  },
+  "incompatible": []
+}

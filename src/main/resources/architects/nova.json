@@ -1,0 +1,18 @@
+{
+  "id": "nova",
+  "name": "狐火・輪灯",
+  "description": [
+    "周囲5ブロックに4ダメージ・押し出し",
+    "密着を崩す範囲術 / CT9秒"
+  ],
+  "kind": "skill",
+  "material": "FIREWORK_STAR",
+  "cooldown": 180,
+  "backend": "java",
+  "handler": "pulse",
+  "parameters": {
+    "range": 5,
+    "damage": 4,
+    "knockback": 0.5
+  }
+}

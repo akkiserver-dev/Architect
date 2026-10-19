@@ -1,0 +1,22 @@
+{
+  "id": "okuriinu",
+  "name": "送り犬・護り牙",
+  "description": [
+    "5秒以内に具ダメージを3回受けると耐性I・速度Iを2秒",
+    "術・二次・環境ダメージは数えない / 内部CT10秒"
+  ],
+  "kind": "passive",
+  "material": "WOLF_ARMOR",
+  "tickInterval": 20,
+  "backend": "lua",
+  "script": "scripts/okuriinu.lua",
+  "parameters": {
+    "required_hits": 3,
+    "window_ticks": 100,
+    "interval": 200,
+    "resistance_ticks": 40,
+    "resistance_amplifier": 0,
+    "speed_ticks": 40,
+    "speed_amplifier": 0
+  }
+}

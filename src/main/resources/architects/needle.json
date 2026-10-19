@@ -1,0 +1,19 @@
+{
+  "id": "needle",
+  "name": "鬼の縫い針",
+  "description": [
+    "射程8・幅0.25の直線攻撃、3ダメージ",
+    "先頭の敵だけに命中 / 間隔0.9秒"
+  ],
+  "kind": "tool",
+  "material": "BLAZE_ROD",
+  "attackInterval": 18,
+  "backend": "java",
+  "handler": "lance",
+  "parameters": {
+    "range": 8,
+    "width": 0.25,
+    "damage": 3,
+    "knockback": 0.15
+  }
+}

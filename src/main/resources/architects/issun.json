@@ -1,0 +1,18 @@
+{
+  "id": "issun",
+  "name": "一寸法師・寸鉄",
+  "description": [
+    "最大体力-10%",
+    "命中から4秒空けた次の直接・範囲攻撃が1.15倍"
+  ],
+  "kind": "park",
+  "material": "IRON_NUGGET",
+  "backend": "lua",
+  "script": "scripts/issun.lua",
+  "parameters": {
+    "health_penalty": -0.1,
+    "window": 80,
+    "multiplier": 1.15
+  },
+  "incompatible": []
+}

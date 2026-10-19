@@ -1,0 +1,12 @@
+{
+  "id": "inaba",
+  "name": "因幡・白兎",
+  "description": ["左: 2.8mの扇形を薙ぐ、2.5HP", "命中後3秒以内の右クリックで、視線方向へ跳ぶ", "攻撃間隔0.8秒 / 跳躍CT7秒。空振りでは跳べない"],
+  "kind": "tool",
+  "material": "RABBIT_FOOT",
+  "backend": "lua",
+  "script": "scripts/inaba.lua",
+  "attackInterval": 16,
+  "cooldown": 140,
+  "parameters": {"range": 2.8, "angle": 40, "damage": 2.5, "window": 60, "speed": 1.05, "lift": 0.25}
+}

@@ -1,0 +1,11 @@
+{
+  "id": "yukionna",
+  "name": "雪女・白息",
+  "description": ["前方6ブロック・半角32度に冷気", "3ダメージ / 命中した相手を3秒減速I", "遮蔽物越しには届かない / CT9秒"],
+  "kind": "skill",
+  "material": "SNOWBALL",
+  "cooldown": 180,
+  "backend": "java",
+  "handler": "frost_cone",
+  "parameters": {"range": 6, "halfAngle": 32, "damage": 3, "slowTicks": 60, "slowAmplifier": 0}
+}

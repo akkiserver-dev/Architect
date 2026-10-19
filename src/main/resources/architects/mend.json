@@ -1,0 +1,16 @@
+{
+  "id": "mend",
+  "name": "鶴の恩返し",
+  "description": [
+    "自身を5HP回復する",
+    "全快なら不発 / CT12秒"
+  ],
+  "kind": "skill",
+  "material": "GHAST_TEAR",
+  "cooldown": 240,
+  "backend": "java",
+  "handler": "mend",
+  "parameters": {
+    "heal": 5
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "id": "siphon",
+  "name": "鬼の血脈",
+  "description": [
+    "直接ダメージ命中で1HP吸収",
+    "内部CT2秒 / 二次ダメージは対象外"
+  ],
+  "kind": "passive",
+  "material": "REDSTONE",
+  "backend": "lua",
+  "script": "scripts/siphon.lua",
+  "parameters": {
+    "heal": 1,
+    "interval": 40
+  }
+}

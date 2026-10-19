@@ -1,6 +1,20 @@
 name: Otogi
 version: '${version}'
 
-main: uk.akkiserver.otogi.OtogiPlugin
+main: jp.akkiserver.otogi.OtogiPlugin
 api-version: '26.2'
 load: STARTUP
+
+commands:
+  otogi:
+    description: 御伽のロビー・ビルド・戦績・試合コマンド
+    usage: /otogi [menu|build|stats|game|help]
+    permission: otogi.command
+
+permissions:
+  otogi.command:
+    description: Otogiコマンドの使用権限
+    default: true
+  otogi.admin:
+    description: 御伽の試合管理・設定再読み込み権限
+    default: op
