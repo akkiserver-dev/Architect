@@ -3,6 +3,10 @@
 式・相・術・具を組み合わせて戦う、Paper向けの異能力PvP。
 間合いを取る、術を通す、返しの一撃を狙う。ビルドによって戦い方が変わります。
 
+公開用の資料： [御伽の遊び方サイト](https://akkiserver-dev.github.io/Architect/) / [遊び方ガイド](docs/public/guide.md) / [能力図鑑](docs/public/abilities.md) / [運営ガイド](docs/public/server-guide.md)。
+Minecraft風フォントの [HTML版](docs/public/index.html) は、`docs/public` フォルダーごと配布してブラウザーで閲覧できます。
+運営向け：[GitHub Pages への公開手順](docs/public/README.md#github-pages-で公開する)。
+
 ## 起動
 
 Java 25 / Paper 26.2 を使用します。

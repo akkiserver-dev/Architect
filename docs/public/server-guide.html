@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="御伽 / Otogiの御伽の運営ガイド。能力を組み合わせて戦うMinecraftの異能力PvP。">
+<meta name="color-scheme" content="light"><title>御伽の運営ガイド | 御伽 / Otogi</title>
+<link rel="icon" href="assets/mark.svg" type="image/svg+xml"><link rel="stylesheet" href="assets/book.css">
+<script src="assets/book.js" defer></script></head><body>
+<a class="skip-link" href="#main">本文へ移動</a>
+<header class="site-header"><a href="index.html" class="brand"><span class="brand-mark" aria-hidden="true">伽</span>
+<span>御伽<small>OTOGI HANDBOOK</small></span></a><nav aria-label="ガイドの切り替え"><a href="index.html">遊び方</a><a href="abilities.html">能力図鑑</a><a href="server-guide.html" aria-current="page">運営ガイド</a></nav>
+<button class="font-toggle" type="button" aria-pressed="false" hidden>標準の字体にする</button></header>
+<main id="main"><section class="page-cover"><p class="eyebrow">OTOGI / SERVER HANDBOOK</p><h1>御伽の運営ガイド</h1><p>御伽 / Otogi　サーバー運営の手引き</p></section><div class="book-layout"><aside class="toc"><p class="eyebrow">このページの目次</p>
+<nav aria-label="目次"><ol><li class="depth-2"><a href="#section-1">導入に必要なもの</a></li><li class="depth-2"><a href="#section-2">プラグインを入れる</a></li><li class="depth-2"><a href="#section-3">マップを1つ登録する</a></li><li class="depth-2"><a href="#section-5">試合を始める</a></li><li class="depth-2"><a href="#section-6">ルールと演出を調整する</a></li><li class="depth-2"><a href="#section-10">持ち物・戦績・ワールド設定</a></li><li class="depth-2"><a href="#section-11">公開前に確認する</a></li></ol></nav><p class="edition">初期設定版 / v0.1.0<br>2026.10.22</p>
+<a class="source-link" href="server-guide.md">Markdown原稿 ↗</a></aside>
+<article class="prose" aria-label="御伽の運営ガイド"><p>Paperサーバーへ御伽を導入し、自分たちのマップで試合を開くための手順です。一般プレイヤー向けの案内は<a href="index.html">遊び方ガイド</a>を参照してください。</p>
+<h2 id="section-1">導入に必要なもの</h2>
+<ul><li>このリポジトリが対象とする <strong>Java 25 / Paper 26.2</strong> のサーバー。</li><li>戦場として使う、ロード済みワールドと建築済みの地形。</li><li>管理用の権限 <code>otogi.admin</code>。初期設定ではOPに付与されます。</li><li>通常モードは2人以上、デュオは4人以上の偶数人数。参加人数分のスポーン地点。</li></ul>
+<p>Otogiは同時に1試合を進行します。戦場のワールド生成や地形の設置・消去は行いません。初回起動時はマップ未登録です。</p>
+<h2 id="section-2">プラグインを入れる</h2>
+<p>リポジトリのルートでビルドします。Windowsの場合は次のコマンドを使います。</p>
+<pre><code>.\gradlew.bat build</code></pre>
+<p>生成された <code>build/libs/Otogi-0.1.0-all.jar</code> を、停止中のサーバーの <code>plugins</code> フォルダーに配置して起動します。<code>-all</code> の付いたJARには必要なライブラリが含まれます。通常のJARだけを配置しないでください。</p>
+<p>JARを更新するときも、サーバーを完全に停止してから入れ替え、再起動します。Bukkitの <code>/reload</code> は使いません。設定だけの変更には、試合とお試しを終えてから <code>/otogi reload</code> を使います。</p>
+<h2 id="section-3">マップを1つ登録する</h2>
+<p>ここではIDを <code>garden</code>、表示名を「幽世の庭」とします。<code>otogi.admin</code> を持つプレイヤーが、使用するロード済みワールドに入って実行してください。</p>
+<ol><li><strong>マップを作成</strong>：<code>/otogi map create garden 幽世の庭</code></li><li><strong>対角の二点で範囲を設定</strong>：一方で <code>/otogi map pos1 garden</code>、もう一方で <code>/otogi map pos2 garden</code>。高さを含む直方体です。床の下と、ジャンプ・高台・観戦地点より上まで含めます。</li><li><strong>スポーンを登録</strong>：安全な足場に立ち、<code>/otogi map spawn garden add</code>。場所を変えて参加人数分を登録します。現在の向きも保存されます。</li><li><strong>観戦地点を登録</strong>：範囲内の安全な場所で <code>/otogi map spectator garden</code>。</li><li><strong>復帰地点を登録</strong>：範囲内の安全な場所で <code>/otogi map recovery garden</code>。</li><li><strong>拠点制圧用の中心を登録</strong>：中心に立って <code>/otogi map point garden 5</code>。半径5ブロックです。拠点制圧を使わなければ省略できます。</li><li><strong>検証して選択</strong>：<code>/otogi map validate garden</code> の案内に従って不足を直し、<code>/otogi map select garden</code>。</li></ol>
+<p>足場、頭上の空間、危険ブロックも検査されます。参加人数はスポーン数までです。デュオを4人で遊ぶなら、最低4点のスポーンを登録してください。</p>
+<h3 id="section-4">登録内容を直す</h3>
+<div class="table-wrap" tabindex="0" role="region" aria-label="横にスクロールできる表"><table><thead><tr><th scope="col">コマンド</th><th scope="col">用途</th></tr></thead><tbody><tr><td><code>/otogi map list</code></td><td>登録済みマップを一覧表示</td></tr><tr><td><code>/otogi map info garden</code></td><td>マップの情報を確認</td></tr><tr><td><code>/otogi map spawn garden list</code></td><td>スポーンの番号と位置を確認</td></tr><tr><td><code>/otogi map spawn garden remove 2</code></td><td>2番のスポーンを削除</td></tr><tr><td><code>/otogi map radius garden 8</code></td><td>拠点の中心を動かさず半径を8へ変更</td></tr><tr><td><code>/otogi map validate garden</code></td><td>設定と安全性を確認</td></tr></tbody></table></div>
+<p>ゲーム内の設定操作は <code>plugins/Otogi/maps/garden.json</code> に保存されます。JSONを直接編集した場合は、試合終了後に <code>/otogi map reload</code> または <code>/otogi reload</code> で反映します。試合中はマップ設定を変更できません。</p>
+<h2 id="section-5">試合を始める</h2>
+<p>参加者全員がロビーで「試合に参加待機」を押すか、<code>/otogi game join</code> を実行します。運営はロビーの「マップ・モード」で選び、「待機者で試合開始」を押します。</p>
+<p>コマンドで始める場合は、モードIDとマップIDを指定します。</p>
+<pre><code>/otogi game start ffa garden</code></pre>
+<p>デュオを遊ぶ場合は4・6・8人などの偶数人数で待機し、次のように開始します。</p>
+<pre><code>/otogi game start duo garden</code></pre>
+<p>モードIDは <code>ffa</code>、<code>last_stand</code>、<code>timed</code>、<code>bounty</code>、<code>king_of_hill</code>、<code>duo</code>。勝利条件は<a href="index.html">遊び方ガイド</a>にまとめています。</p>
+<p><code>/otogi game status</code> で状況を確認し、<code>/otogi game stop</code> で中止できます。中止した試合は通算戦績へ集計しません。通常終了は途中退出者を含めて集計し、退出者は勝利扱いになりません。</p>
+<h2 id="section-6">ルールと演出を調整する</h2>
+<p>起動後の設定ファイルは <code>plugins/Otogi</code> にあります。編集前にバックアップを取り、試合とお試しをすべて終えてから <code>/otogi reload</code> で反映します。検証に失敗した設定は反映せず、従来の設定を維持します。</p>
+<div class="table-wrap" tabindex="0" role="region" aria-label="横にスクロールできる表"><table><thead><tr><th scope="col">ファイル</th><th scope="col">主な内容</th><th scope="col">時間の単位</th></tr></thead><tbody><tr><td><code>config.yml</code></td><td>基礎体力、ビルド枠、乱戦・デュオのルール、標準能力</td><td>能力は秒。復活待ち・加護はtick</td></tr><tr><td><code>combat.yml</code></td><td>具の威力・判定・攻撃間隔、防御、音と粒子</td><td>tick</td></tr><tr><td><code>modes.json</code></td><td>残機戦の残機・時間、拠点制圧の目標点・時間</td><td>秒</td></tr><tr><td><code>architects/*.json</code></td><td>追加能力の表示・数値・種類</td><td>tick</td></tr><tr><td><code>architects/scripts/*.lua</code></td><td>追加能力の短い動作処理</td><td>各APIの仕様に従う</td></tr><tr><td><code>lang/ja_jp.json</code></td><td>メニュー、通知、能力名、説明</td><td>—</td></tr></tbody></table></div>
+<p>20tick＝1秒、2HP＝1ハートです。<code>config.yml</code> でも <code>ffa.respawn-delay-ticks</code> と <code>ffa.spawn-protection-ticks</code> はtickなので注意してください。</p>
+<h3 id="section-7">基本ルールの例</h3>
+<p>次は <code>config.yml</code> の該当部分です。ファイル全体を置き換えず、既存項目を編集します。</p>
+<pre><code>base-health: 40.0
+build:
+  size: 5
+ffa:
+  match-seconds: 600
+  kill-limit: 10
+  spawn-protection-ticks: 60
+  respawn-delay-ticks: 100
+duo:
+  match-seconds: 600
+  kill-limit: 20</code></pre>
+<p>基礎体力は1〜1024HP、ビルド枠は1〜9です。復活待ちと加護の設定は、デュオを含む復帰のあるモードで共通に使います。能力による追加体力は基礎体力とは別に適用します。</p>
+<p>残機戦・拠点制圧の初期設定は次の通りです。</p>
+<pre><code>{
+  &quot;lastStand&quot;: {&quot;lives&quot;: 3, &quot;matchSeconds&quot;: 600},
+  &quot;kingOfHill&quot;: {&quot;targetPoints&quot;: 60, &quot;matchSeconds&quot;: 600}
+}</code></pre>
+<p>時間制乱戦の3分と、賞金争奪の目標20点は現在の実装で固定されています。賞金争奪の制限時間は <code>ffa.match-seconds</code> に従います。</p>
+<h3 id="section-8">音・境界の表示</h3>
+<p><code>combat.yml</code> の <code>feedback</code> には、<code>sound</code>、<code>particles</code>、<code>volume</code>、<code>boundary</code>、<code>warp-particles</code>、<code>warp-sound</code>、<code>kill-sound</code>、<code>kill-volume</code>、<code>kill-pitch</code> があります。粒子を切っても当たり判定は変わりません。CTの表示方式は各プレイヤーがロビーから変更できます。</p>
+<h3 id="section-9">文言・能力の編集</h3>
+<p><code>lang/ja_jp.json</code> の <code>{0}</code>、<code>{1}</code> は差し込み用なので残します。単一引用符を表示する場合は <code>&#x27;&#x27;</code> と書きます。能力の表示名や説明を変えたときは、公開ガイドと能力図鑑も更新してください。</p>
+<p>JSON・Luaの詳細は、リポジトリ内の開発資料 <code>docs/script-architects.md</code> を参照してください。</p>
+<h2 id="section-10">持ち物・戦績・ワールド設定</h2>
+<p>試合終了・退出・中止やプラグイン停止時には、参加前の持ち物、体力、効果、経験値、ゲームモード、位置、スコアボードなどを復元します。ビルドは <code>builds.yml</code>、通算戦績は <code>player-stats.json</code> に保存します。お試しの成績は記録しません。</p>
+<p>ロケーターバーの無効化は<strong>ワールド全体</strong>に適用され、同じワールドの試合外プレイヤーにも影響します。最後の試合・お試し利用者が抜けると、元の設定へ戻します。運営時には専用の戦場ワールドを用意すると管理しやすくなります。</p>
+<h2 id="section-11">公開前に確認する</h2>
+<ul><li>実際の接続先・参加方法・参加可能時間を、サーバーの告知へ記載する。</li><li>JavaとPaperの対象バージョン、JARの起動ログを確認する。</li><li>マップ検証を通し、実際の人数で開始・復活・終了・退出を試す。</li><li>持ち物や位置が戻ること、通常終了だけが戦績に入ることを確認する。</li><li>デュオは4人以上で、相方表示・味方への攻撃・チーム得点を確認する。</li><li>自分たちの調整値と、公開ガイドの説明を照合する。</li></ul>
+<p>この資料は現行ソースと同梱設定に基づく手順です。公開サーバーでの動作確認は、使用する環境・マップ・人数で行ってください。</p></article></div></main>
+<footer><a class="footer-brand" href="index.html">御伽 / Otogi</a><p>同梱の初期設定に基づくガイド。実際のルールはゲーム内でもご確認ください。</p>
+<p>MinecraftはMojangおよびMicrosoftの商標です。御伽は非公式のコミュニティ制作プラグインです。</p>
+<p class="font-credit">Font: <a href="https://github.com/fontworks-fonts/DotGothic16">DotGothic16</a> · <a href="assets/fonts/OFL.txt">SIL Open Font License 1.1</a></p>
+<a href="#main">ページの先頭へ ↑</a></footer></body></html>
