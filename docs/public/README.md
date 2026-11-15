@@ -29,7 +29,7 @@ HTML3ページと `abilities.md` を生成します。図鑑はJavaの標準能�
 2. ワークフローと公開用ファイルを `master` に反映します。公開用ファイルには、生成済みの HTML・Markdown と `assets` が必要です。
 3. [Actions](https://github.com/akkiserver-dev/Architect/actions) で **Publish Otogi guide** の成功を確認します。初回の push 後に Pages を有効にした場合は、同じワークフローの **Run workflow** で `master` を選んで実行します。
 
-公開先は [https://akkiserver-dev.github.io/Architect/](https://akkiserver-dev.github.io/Architect/) です。公開サイトにはガイド、能力図鑑、運営ガイドとその素材だけを配置します。
+公開先は [御伽の遊び方サイト](https://hp.akkiserver.uk/Architect/) です。公開サイトにはガイド、能力図鑑、運営ガイドとその素材だけを配置します。
 
 更新時は上のコマンドで HTML と図鑑を再生成し、生成物と原稿をコミットしてください。`master` に公開用ファイルの変更が入ると再公開されます。ワークフローが公開するのはコミット済みのファイルです。
 
